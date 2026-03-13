@@ -416,63 +416,6 @@ html, body {
     transform: scale(1.05)
 }
 
-#trophy-bg-btn{
-    height: auto;
-    width: 200px;
-    transition: filter 0.15s ease-in-out;
-    animation: moveUpDown 1s ease-in-out infinite alternate;
-}
-@keyframes moveUpDown {
-    0% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(-10px); 
-    }
-}
-#trophy-bg-btn:active{
-    transform: translateY(0.125rem);
-    box-shadow: none!important;
-    animation: none;
-}
-#trophy-bg-btn:hover{
-    filter: drop-shadow(0 0 25px #ffd900) drop-shadow(0 0 20px #ffd900)
-}
-
-
-.custom-popover {
-    width: 200px !important;
-    border: #0026ff 0.3125rem solid !important;
-}
-.custom-popover .popover-header, .popover-body {
-    background-color: #121647 !important;
-    border-bottom: none;
-    font-family:"Perfect DOS VGA 437", sans-serif !important;
-    font-size: 1.6rem!important;
-    color: #ff0000 !important;
-    text-align: center;
-    padding:5px !important;
-}
-.custom-popover.bs-popover-auto[data-popper-placement^="right"] > .popover-arrow::before, .popover-arrow::after {
-  border-right-color:#0026ff  !important;
-  width: 1.5rem;
-  height: 1.5rem; 
-  left: -1.2rem
-}
-.custom-popover.bs-popover-auto[data-popper-placement^="right"] > .popover-arrow::after {
-  border-right-color: #0026ff  !important;
-  border-width: 0.75rem;
-  left: -1.2rem 
-}
-
-#achievements-box{
-    padding: 2rem;
-    border: 5px solid #f8efbb;
-    border-radius: 3rem;
-    background-image: url('https://i.pinimg.com/originals/06/64/51/066451b414eb74cce52d1c7a7c28d183.gif');
-    background-size: cover;
-}
-
 
 /* ------------------------------- PROJECTS ELEMENTS HERE ----------------------------*/
 #projects{
@@ -537,69 +480,6 @@ html, body {
     display: block;
     cursor: pointer;
   }
-/* ------------------------------- SKILLS ELEMENTS HERE ----------------------------*/
-#skills{
-    padding: 50px;
-} 
-
-.skills-container{
-    padding-top: 2rem;
-    overflow-x:hidden;
-    width: 100%;
-}
-.skills-icon{
-    height: auto !important;
-    width: 90px !important;
-}
-
-.custom-progressbar{
-    padding-top: 5px!important;
-    background-color: #1100ff !important;
-    font-size: x-large;
-    font-family: "Broken Console", sans-serif;;
-}
-.custom-progressbar:hover{
-    background-color: #000000 !important;
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-position: center;
-}
-
-
-/* ------------------------------- CONTACTS ELEMENTS HERE ----------------------------*/
-.social-icons {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-.social-icons .icon {
-    font-size: 2rem;
-    color: #f6f6f6;
-    transition: color 0.3s;
-}
-.social-icons .icon:hover {
-    color: #ff0000;
-}
-
-.custom-btn{
-    margin-top: 20px!important;
-    border: 3px solid #f8efbb !important;
-    color: #fff !important;
-    font-size: 1.5rem !important;
-    text-align: center !important;
-}
-
-.custom-footer{
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-position: center;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-family:"Perfect DOS VGA 437", sans-serif;
-    font-size: 1.6rem;
-    color: #ffffff;
-}
 
 /* ------------------------------- MEDIA QUERIEs ----------------------------*/
 @media (max-width: 575px) {
@@ -679,6 +559,7 @@ html, body {
 }
 
 </style> 
+
 
 <script>
     // NAVIGATION BAR HERE  
