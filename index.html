@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio 2026 | Jael Reyes</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet"> 
-    <link href="https://fonts.cdnfonts.com/css/broken-console" rel="stylesheet"> 
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/broken-console">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
+
     <link href="https://i.postimg.cc/2y3ccBf3/badge.png" rel="icon" type="image/png">
 
     <style>
+        /* --- ROOT & GLOBAL STYLES --- */
         :root {
-            --navbar-height: 70px;
-            --rpg-red: #ff4d4d;
-            --rpg-blue: #0026ff;
+            --navbar-height: 70px; /* Default fallback */
             --retro-cream: #E4DBBF;
+            --retro-blue: #15194e;
+            --retro-red: #ff0000;
+            --accent-red: #c53737;
         }
 
         html, body {
@@ -28,25 +29,43 @@
             scroll-behavior: smooth;
             max-width: 100%;
             overflow-x: hidden;
+            scroll-padding-top: var(--navbar-height);
+            padding-top: var(--navbar-height);
             color: #ffffff;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION BAR --- */
         .navbar {
-            background-color: #15194e;
+            background-color: var(--retro-blue);
             font-family: "Perfect DOS VGA 437", sans-serif;
-            border-bottom: 4px solid var(--rpg-blue);
+            align-items: center;
+            border-bottom: 2px solid var(--retro-blue);
         }
 
         .navbar .nav-link {
-            font-size: 24px;
+            font-size: 28px;
             color: var(--retro-cream);
-            transition: all 0.2s ease;
         }
 
         .navbar .nav-link:hover {
-            color: var(--rpg-red);
-            text-shadow: -3px 3px 0px #000;
+            color: var(--retro-red);
+            text-shadow: -4px 3px 0px #000000d3;
+            transition: transform 0.2s ease, color 0.3s ease;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 25px;
+            color: var(--retro-cream) !important;
+        }
+
+        .navbar-toggler {
+            border: none !important;
+            padding: 0;
+        }
+
+        #toggler-icon:hover {
+            filter: drop-shadow(-4px 4px 0px #970000);
+            transition: filter 0.15s ease-in-out;
         }
 
         /* --- HERO SECTION --- */
@@ -58,114 +77,148 @@
 
         #pixel-earth {
             width: 150px;
-            animation: moveUpDown 1.5s ease-in-out infinite alternate;
-            will-change: transform;
+            height: auto;
+            animation: moveUpDown 1s ease-in-out infinite alternate;
         }
 
         @keyframes moveUpDown {
-            from { transform: translateY(0); }
-            to { transform: translateY(-30px); }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-40px); }
         }
 
         .gradient-blue {
-            font-family: "Broken Console", sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            background: linear-gradient(#7a91e1, #c0ccf1, #435fd5);
+            font-weight: bold;
+            font-size: 3.5rem;
+            background: linear-gradient(#7a91e1, #8ea3da, #c0ccf1, #4158c2, #435fd5, #657fda);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(-4px 4px 0px #15194e);
+            filter: drop-shadow(-4px 4px 0px #3b52c4);
         }
 
-        /* --- RPG ELEMENTS (HP BARS) --- */
-        .hp-container {
-            background: #000;
-            border: 2px solid var(--retro-cream);
-            height: 20px;
-            width: 100%;
-            margin-top: 10px;
+        #home-pg-txt-1 {
+            font-family: "Broken Console", sans-serif;
+            letter-spacing: 8px;
+            transform: perspective(12.5rem) rotateX(10deg);
+        }
+
+        #home-pg-txt-2 {
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        #start-scroll {
             position: relative;
+            display: inline-block;
         }
 
-        .hp-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #ff0000, #ff4d4d);
-            width: 0%; /* Animated via JS or Hover */
-            transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        #start-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 1;
+            margin: 0;
         }
 
-        .custom-card-normal:hover .hp-bar-coding { width: 95%; }
-        .custom-card-normal:hover .hp-bar-cats { width: 100%; }
-        .custom-card-normal:hover .hp-bar-sleep { width: 40%; }
+        #start-scroll:hover #start-text { color: var(--retro-red); }
+        #start-img-bg { width: 10rem; transition: filter 0.15s ease; }
+        #start-scroll:hover #start-img-bg { filter: drop-shadow(-0.5rem 0.5rem 0rem #0004ffd3); }
 
-        /* --- CARDS & CONTENT --- */
+        /* --- ABOUT & CARDS --- */
+        #about { padding: 50px 15px; }
+
         .custom-card-normal {
             border-radius: 1rem !important;
-            border: 5px solid var(--rpg-blue) !important;
+            border: 0.3rem solid #0026ff !important;
             background-color: #121647 !important;
             font-family: "Perfect DOS VGA 437", sans-serif;
+            font-size: 1.6rem;
             color: var(--retro-cream) !important;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        .custom-card-normal:hover {
-            border-color: var(--rpg-red) !important;
-            transform: scale(1.02);
-            box-shadow: -10px 10px 0px rgba(0, 38, 255, 0.5);
+        .custom-card-normal:hover, #me-photo:hover {
+            border: 5px solid var(--retro-red) !important;
+            background-color: #000 !important;
+            filter: drop-shadow(-0.5rem 0.5rem 0rem #1100ffc7);
+            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
+            transform: scale(1.03);
         }
 
-        .label-red {
-            color: var(--rpg-red);
-            text-shadow: -2px 2px 0px #000;
+        .card-label {
+            color: var(--accent-red);
+            text-shadow: -4px 4px 0px #000000d3;
         }
 
-        /* --- PROJECTS --- */
+        #me-photo {
+            width: 100%;
+            border-radius: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- PROJECTS SECTION --- */
         .image-hover-card {
             position: relative;
+            max-width: 18rem;
+            margin: 0 auto 20px;
             overflow: hidden;
             border-radius: 1rem;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
+            transition: transform 0.4s ease;
+        }
+
+        .image-hover-card img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
         }
 
         .image-hover-card:hover {
-            border-color: var(--rpg-red);
-            box-shadow: 0 0 20px var(--rpg-red);
-        }
-
-        .overlay-text {
-            font-family: "Perfect DOS VGA 437", sans-serif;
-            font-size: 1.5rem;
-            color: white;
-            text-align: center;
-            padding: 10px;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 20px var(--retro-red);
         }
 
         .image-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .image-hover-card:hover .image-overlay { opacity: 1; }
 
-        footer {
-            padding: 50px 0;
-            background: #000;
-            font-family: "Perfect DOS VGA 437", sans-serif;
+        .overlay-text {
+            color: #fff;
+            font-size: 1.5rem;
             text-align: center;
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            padding: 10px;
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- FOOTER --- */
+        .custom-footer {
+            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
+            padding: 50px 0;
+            text-align: center;
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            font-size: 1.2rem;
+        }
+
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            .hero-section { padding: 80px 10px; }
-            #home-pg-txt-2 { font-size: 1.2rem; }
-            .navbar .nav-link { font-size: 18px; }
+            .gradient-blue { font-size: 2.5rem; }
+            #home-pg-txt-2 { font-size: 1.4rem; }
+            .custom-card-normal { font-size: 1.2rem; }
+            .overlay-text { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -175,13 +228,15 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center text-white" href="#">
-                <img src="https://i.postimg.cc/2y3ccBf3/badge.png" alt="badge" width="30" class="me-2">
-                <span class="fw-bold">REYES.OS</span>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://i.postimg.cc/2y3ccBf3/badge.png" alt="badge" width="24" height="24">
+                <span class="fw-bold ms-3" id="title">Portfolio 2026</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <img src="https://i.postimg.cc/qMPbwRDM/toggle-button.png" alt="menu" style="width: 40px;">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <img src="https://i.postimg.cc/qMPbwRDM/toggle-button.png" alt="menu" id="toggler-icon" style="width: 2em;">
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
@@ -193,102 +248,151 @@
     </nav>
 </header>
 
-<section class="hero-section text-center" id="home"> 
-    <img src="https://i.postimg.cc/3rjHyqZw/pixel-earth.png" alt="pixel-earth" id="pixel-earth">
-    <div class="mt-4">
-        <h1 class="gradient-blue animate__animated animate__fadeInDown">HELLO WORLD!</h1>
-        <p id="home-pg-txt-2" class="mt-3 fs-3">
-            I'm Jael Reyes! CS student & cat enthusiast.<br>
-            Level 20 Dev | Coffee Powered
-        </p>
-    </div>
-    <div class="mt-5">
-        <a href="#about" class="btn text-decoration-none">
-            <img src="https://i.postimg.cc/VkWSD41s/explore-button.png" alt="start" style="width: 180px;">
-        </a>
+<section class="hero-section text-center" id="home">
+    <div class="container">
+        <img src="https://i.postimg.cc/3rjHyqZw/pixel-earth.png" alt="pixel-earth" id="pixel-earth">
+        <div class="pt-5" id="group-text">
+            <h1 id="home-pg-txt-1" class="gradient-blue">Hello World!</h1>
+            <p id="home-pg-txt-2">
+                I'm Jael Reyes! A CS student drowning in cat fur...<br>
+                I hope you enjoy every scroll and interaction<br>
+                u have with this work huehue :3
+            </p>
+        </div>
+        <div class="mt-5">
+            <a href="#about" class="btn" id="start-scroll">
+                <p id="start-text">Start</p>
+                <img src="https://i.postimg.cc/VkWSD41s/explore-button.png" alt="start" id="start-img-bg">
+            </a>
+        </div>
     </div>
 </section>
 
-<div class="container my-5 pt-5" id="about"> 
-    <h2 id="about-txt-1" class="mb-4" onmouseover="this.innerText='QUEST LOG: ME ^O^'" onmouseout="this.innerText='RANDOM INFO ABOUT ME ^-^'"> RANDOM INFO ABOUT ME ^-^</h2>
+<section class="container" id="about">
+    <h1 id="about-txt-1" class="mb-4" onmouseover="changeText1(event)" onmouseout="changeText1(event)"> 
+        Random Info About Me ^-^
+    </h1>
     
-    <div class="row g-4"> 
-        <div class="col-12 col-lg-5">
-            <img src="https://i.postimg.cc/Pq4SdMXP/me-photo.png" alt="Jael" class="img-fluid rounded-4 border border-primary border-4 w-100"> 
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <img src="https://i.postimg.cc/Pq4SdMXP/me-photo.png" alt="Jael Reyes" id="me-photo">
         </div>
-        
-        <div class="col-12 col-lg-7">
-            <div class="card custom-card-normal h-100"> 
-                <div class="card-body p-4">
-                    <p class="fs-4">
-                        <span class="label-red">NAME:</span> Jael P. Reyes<br>
-                        <span class="label-red">CLASS:</span> Aspiring Web/RPG Developer<br>
-                        <span class="label-red">PASSIVE:</span> Cat Sniffing (+10 Sanity)
+        <div class="col-12 col-lg-6">
+            <div class="card custom-card-normal h-100" id="name-info">
+                <div class="card-body">
+                    <p>
+                        <b class="card-label">Name:</b> Jael P. Reyes<br>
+                        <b class="card-label">Birth date:</b> 08/22/2005<br>
+                        <b class="card-label">Age:</b> 20 years old<br><br>
+                        <b class="card-label">#aspiring web developer and rpg developer</b>
                     </p>
-                    <hr class="border-secondary">
-                    <h4 class="label-red mt-3">STATISTICS (Hover card to view)</h4>
-                    
-                    <div class="mb-3">
-                        <span>Coding (Pain & Joy)</span>
-                        <div class="hp-container"><div class="hp-bar hp-bar-coding"></div></div>
-                    </div>
-                    <div class="mb-3">
-                        <span>Cat Adoption Luck</span>
-                        <div class="hp-container"><div class="hp-bar hp-bar-cats"></div></div>
-                    </div>
-                    <div class="mb-3">
-                        <span>Sleep Quality</span>
-                        <div class="hp-container"><div class="hp-bar hp-bar-sleep"></div></div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container my-5" id="projects">
-    <h2 class="mb-4">PROJECT SHOWCASE</h2>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card custom-card-normal">
+                <div class="card-body">
+                    <p>
+                        <b class="card-label">Recent interest:</b> ...coffee "beans" from cat poop(?)<br>
+                        <b class="card-label">Fun fact:</b> i tried catnapping a stray cat recently (it worked!!)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 col-lg-6">
+            <div class="card custom-card-normal h-100">
+                <div class="card-body">
+                    <p><b class="card-label">Hobbies:</b><br>
+                        > Reading &bull; Coding for fun<br>
+                        > Drawing &bull; Coding to suffer<br>
+                        > Sniffing cats &bull; Singing<br>
+                        > Sleeping &bull; Swinging at parks
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card custom-card-normal h-100" id="super-soft-skills">
+                <div class="card-body">
+                    <p><b class="card-label">Super Soft Skills:</b><br>
+                        > Creative at heart &bull; Detail-oriented<br>
+                        > Problem solving skills (???)<br>
+                        > Adaptable (depends on chaos level)<br>
+                        > Empathic
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5" id="projects">
+    <h1 class="mb-4" onmouseover="changeText5(event)" onmouseout="changeText5(event)"> Projects ^-^ </h1>
     <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
             <div class="image-hover-card">
-                <img src="https://i.postimg.cc/8zb4Ytzh/Reyes-Poster.png" class="img-fluid" alt="Poster Project">
-                <div class="image-overlay"><div class="overlay-text">GVCOM: First Poster</div></div>
+                <img src="https://i.postimg.cc/8zb4Ytzh/Reyes-Poster.png" alt="poster1">
+                <div class="image-overlay"><div class="overlay-text">GVCOM: First Poster Project</div></div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <a href="https://www.figma.com/proto/nvpHSrlqwGslLeO0eXEy1u/cartistry-re-design" target="_blank">
-                <div class="image-hover-card">
-                    <img src="https://i.postimg.cc/BvYgSbDb/cartistry.png" class="img-fluid" alt="Cartistry UI">
-                    <div class="image-overlay"><div class="overlay-text">HCOMINT: Figma Prototype</div></div>
-                </div>
-            </a>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="image-hover-card">
-                <img src="https://i.postimg.cc/765Nf4MV/website-1.png" class="img-fluid" alt="Bootstrap Showcase">
-                <div class="image-overlay"><div class="overlay-text">WEB1: Bootstrap 5.3</div></div>
+                <img src="https://i.postimg.cc/cJHRbWjS/happi-galentine-s-day.png" alt="poster2">
+                <div class="image-overlay"><div class="overlay-text">GVCOM: Galentine's Project</div></div>
             </div>
         </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="image-hover-card">
+                <img src="https://i.postimg.cc/3x3C2mFW/reyesgvcomact.png" alt="poster3">
+                <div class="image-overlay"><div class="overlay-text">GVCOM: Layer Styles</div></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="https://www.figma.com/proto/nvpHSrlqwGslLeO0eXEy1u/cartistry-re-design" target="_blank" class="image-link">
+                <div class="image-hover-card">
+                    <img src="https://i.postimg.cc/BvYgSbDb/cartistry.png" alt="figma">
+                    <div class="image-overlay"><div class="overlay-text">Figma Prototype</div></div>
+                </div>
+            </a>
+        </div>
     </div>
-</div>
+</section>
 
-<footer>
+<footer class="custom-footer">
     <div class="container">
-        <p>&copy; <span id="year"></span> | Designed with ☕ by Jael Reyes</p>
-        <p style="font-size: 14px; opacity: 0.6;">Educational Purposes Only | No Infringement Intended</p>
+        <p>&copy; <span id="currentYear"></span> Jael Reyes. No Copyright Infringement Intended.</p>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Set dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Dynamic Navbar Padding
+        // Update Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Calculate Navbar Height for dynamic scrolling
         const nav = document.querySelector(".navbar");
-        document.documentElement.style.setProperty("--navbar-height", nav.offsetHeight + "px");
+        const updateNavHeight = () => {
+            document.documentElement.style.setProperty("--navbar-height", nav.offsetHeight + "px");
+        };
+        updateNavHeight();
+        window.addEventListener('resize', updateNavHeight);
     });
+
+    // Hover Text Interactions
+    function changeText1(e) {
+        e.target.innerText = (e.type === "mouseover") ? "RANDOM INFO ABOUT ME ^O^" : "Random Info About Me ^-^";
+    }
+
+    function changeText5(e) {
+        e.target.innerText = (e.type === "mouseover") ? "Projects >o<" : "Projects ^-^";
+    }
 </script>
 
 </body>
