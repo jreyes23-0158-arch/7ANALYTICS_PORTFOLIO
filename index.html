@@ -87,13 +87,21 @@
         }
 
         .gradient-blue {
-            font-weight: bold;
-            font-size: 3.5rem;
-            background: linear-gradient(#7a91e1, #8ea3da, #c0ccf1, #4158c2, #435fd5, #657fda);
+            font-family: "Broken Console", sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            background: linear-gradient(#7a91e1, #c0ccf1, #435fd5);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(-4px 4px 0px #3b52c4);
+            filter: drop-shadow(-4px 4px 0px #15194e);
+        }
+        .gradient-blue {
+            transition: all 0.3s ease; /* This adds the smooth transition timing */
+        }
+
+        .gradient-blue:hover {
+            filter: drop-shadow(-8px 8px 0px var(--rpg-red));
+            transform: scale(1.1);
         }
 
         #home-pg-txt-1 {
@@ -252,12 +260,7 @@
     <div class="container">
         <img src="https://i.postimg.cc/3rjHyqZw/pixel-earth.png" alt="pixel-earth" id="pixel-earth">
         <div class="pt-5" id="group-text">
-            <h1 id="home-pg-txt-1" class="gradient-blue">Hello World!</h1>
-            <p id="home-pg-txt-2">
-                I'm Jael Reyes! A CS student drowning in cat fur...<br>
-                I hope you enjoy every scroll and interaction<br>
-                u have with this work huehue :3
-            </p>
+            <h1 class="gradient-blue animate__animated animate__fadeInDown">HELLO WORLD!</h1>
         </div>
         <div class="mt-5">
             <a href="#about" class="btn" id="start-scroll">
