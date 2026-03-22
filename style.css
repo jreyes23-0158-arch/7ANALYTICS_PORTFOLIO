@@ -182,7 +182,7 @@ html::after {
     min-height: 400px; 
     display: flex; 
     flex-direction: column; 
-    background: #000000; /* Ensuring the list area is also solid black */
+    background: #000000; 
 }
 
 .file-item {
