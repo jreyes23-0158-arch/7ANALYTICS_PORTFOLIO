@@ -70,9 +70,19 @@
 
         /* --- HERO SECTION --- */
         .hero-section {
-            padding: 150px 20px;
+            height: 100vh; 
+            
+            min-height: calc(100vh - var(--navbar-height)); 
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;    
+            
+            padding: 20px;
             background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
             background-position: center;
+            background-size: cover; 
         }
 
         #pixel-earth {
@@ -264,7 +274,7 @@
         </div>
         <div class="mt-5">
             <a href="#about" class="btn" id="start-scroll">
-                <p id="start-text">Start</p>
+                <p id="start-text">Explore</p>
                 <img src="https://i.postimg.cc/VkWSD41s/explore-button.png" alt="start" id="start-img-bg">
             </a>
         </div>
