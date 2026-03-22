@@ -3,26 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio 2026</title>
+    <title>Portfolio 2026 | Jael Reyes</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://i.postimg.cc/2y3ccBf3/badge.png" type="image" rel="icon">  <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet"> <link href="https://fonts.cdnfonts.com/css/broken-console" rel="stylesheet"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet"> 
+    <link href="https://fonts.cdnfonts.com/css/broken-console" rel="stylesheet"> 
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <link href="https://i.postimg.cc/2y3ccBf3/badge.png" rel="icon" type="image/png">
+
+    <style>
+        :root {
+            --navbar-height: 70px;
+            --rpg-red: #ff4d4d;
+            --rpg-blue: #0026ff;
+            --retro-cream: #E4DBBF;
+        }
+
+        html, body {
+            background-color: #151726 !important;
+            scroll-behavior: smooth;
+            max-width: 100%;
+            overflow-x: hidden;
+            color: #ffffff;
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            background-color: #15194e;
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            border-bottom: 4px solid var(--rpg-blue);
+        }
+
+        .navbar .nav-link {
+            font-size: 24px;
+            color: var(--retro-cream);
+            transition: all 0.2s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--rpg-red);
+            text-shadow: -3px 3px 0px #000;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            padding: 150px 20px;
+            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
+            background-position: center;
+        }
+
+        #pixel-earth {
+            width: 150px;
+            animation: moveUpDown 1.5s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @keyframes moveUpDown {
+            from { transform: translateY(0); }
+            to { transform: translateY(-30px); }
+        }
+
+        .gradient-blue {
+            font-family: "Broken Console", sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            background: linear-gradient(#7a91e1, #c0ccf1, #435fd5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(-4px 4px 0px #15194e);
+        }
+
+        /* --- RPG ELEMENTS (HP BARS) --- */
+        .hp-container {
+            background: #000;
+            border: 2px solid var(--retro-cream);
+            height: 20px;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .hp-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff4d4d);
+            width: 0%; /* Animated via JS or Hover */
+            transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .custom-card-normal:hover .hp-bar-coding { width: 95%; }
+        .custom-card-normal:hover .hp-bar-cats { width: 100%; }
+        .custom-card-normal:hover .hp-bar-sleep { width: 40%; }
+
+        /* --- CARDS & CONTENT --- */
+        .custom-card-normal {
+            border-radius: 1rem !important;
+            border: 5px solid var(--rpg-blue) !important;
+            background-color: #121647 !important;
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            color: var(--retro-cream) !important;
+            transition: all 0.3s ease;
+        }
+
+        .custom-card-normal:hover {
+            border-color: var(--rpg-red) !important;
+            transform: scale(1.02);
+            box-shadow: -10px 10px 0px rgba(0, 38, 255, 0.5);
+        }
+
+        .label-red {
+            color: var(--rpg-red);
+            text-shadow: -2px 2px 0px #000;
+        }
+
+        /* --- PROJECTS --- */
+        .image-hover-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .image-hover-card:hover {
+            border-color: var(--rpg-red);
+            box-shadow: 0 0 20px var(--rpg-red);
+        }
+
+        .overlay-text {
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-hover-card:hover .image-overlay { opacity: 1; }
+
+        footer {
+            padding: 50px 0;
+            background: #000;
+            font-family: "Perfect DOS VGA 437", sans-serif;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-section { padding: 80px 10px; }
+            #home-pg-txt-2 { font-size: 1.2rem; }
+            .navbar .nav-link { font-size: 18px; }
+        }
+    </style>
 </head>
 
 <body>
+
 <header>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="https://i.postimg.cc/2y3ccBf3/badge.png" alt="badge" width="24" height="24" class="d-inline-block align-text-top">
-                <span class="fw-md-bold ms-3 mt-1" id="title">Portfolio 2026</span>
+            <a class="navbar-brand d-flex align-items-center text-white" href="#">
+                <img src="https://i.postimg.cc/2y3ccBf3/badge.png" alt="badge" width="30" class="me-2">
+                <span class="fw-bold">REYES.OS</span>
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="https://i.postimg.cc/qMPbwRDM/toggle-button.png" alt="toggler-icon" id="toggler-icon" style="width: 2em; height: auto;"> 
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <img src="https://i.postimg.cc/qMPbwRDM/toggle-button.png" alt="menu" style="width: 40px;">
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
@@ -34,577 +193,103 @@
     </nav>
 </header>
 
-<section class="hero-section text-center py-5" id="home" > 
+<section class="hero-section text-center" id="home"> 
     <img src="https://i.postimg.cc/3rjHyqZw/pixel-earth.png" alt="pixel-earth" id="pixel-earth">
-    <div class="pt-5 mt-4" id="group-text">
-        <h1 id="home-pg-txt-1" class="gradient-blue">Hello World!</h1>
-        <p id="home-pg-txt-2">
-            I'm Jael Reyes! A CS student drowning in cat fur...<br>
-            I hope you enjoy every scroll and interaction<br>
-            u have with this work huehue :3<br>
-            thanks :D
+    <div class="mt-4">
+        <h1 class="gradient-blue animate__animated animate__fadeInDown">HELLO WORLD!</h1>
+        <p id="home-pg-txt-2" class="mt-3 fs-3">
+            I'm Jael Reyes! CS student & cat enthusiast.<br>
+            Level 20 Dev | Coffee Powered
         </p>
     </div>
-    <div class="mt-5 mb-5">
-        <a href="#about" class="btn position-relative" id="start-scroll" >
-            <p id="start-text">Start</p>
-            <img src="https://i.postimg.cc/VkWSD41s/explore-button.png" alt="start-img-bg" id="start-img-bg"> 
+    <div class="mt-5">
+        <a href="#about" class="btn text-decoration-none">
+            <img src="https://i.postimg.cc/VkWSD41s/explore-button.png" alt="start" style="width: 180px;">
         </a>
     </div>
 </section>
 
-<div class="container mt-5 mb-5" id="about" > 
-    <h1 id="about-txt-1" onmouseover="changeText1(event)" onmouseout="changeText1(event)"> Random Info About Me ^-^</h1>
-    <div class="row"> 
-        <div class="col-12 col-lg-6">
-            <img src="https://i.postimg.cc/Pq4SdMXP/me-photo.png" alt="photo" id="me-photo"> 
-        </div>
-        <div class="card custom-card-normal col" id="name-info"> 
-            <div class="card-body">
-                <p> 
-                    <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">Name:</b> Jael P. Reyes<br>
-                    <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">Birth date:</b> 08/22/2005<br>
-                    <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">Age:</b> 20 years old<br><br>
-                    <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">#aspiring web developer and rpg developer</b><br>
-                </p>
-            </div>
-        </div>
-    </div>
+<div class="container my-5 pt-5" id="about"> 
+    <h2 id="about-txt-1" class="mb-4" onmouseover="this.innerText='QUEST LOG: ME ^O^'" onmouseout="this.innerText='RANDOM INFO ABOUT ME ^-^'"> RANDOM INFO ABOUT ME ^-^</h2>
     
-    <div class="row mt-4">
-        <div class="card custom-card-normal"> 
-            <div class="card-body">
-                <p> 
-                <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;"> Recent interest:</b> ...coffee "beans" from cat poop(?)<br>
-                <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;"> Fun fact:</b> i tried catnapping a stray cat recently (it worked!!)
-                </p>
+    <div class="row g-4"> 
+        <div class="col-12 col-lg-5">
+            <img src="https://i.postimg.cc/Pq4SdMXP/me-photo.png" alt="Jael" class="img-fluid rounded-4 border border-primary border-4 w-100"> 
+        </div>
+        
+        <div class="col-12 col-lg-7">
+            <div class="card custom-card-normal h-100"> 
+                <div class="card-body p-4">
+                    <p class="fs-4">
+                        <span class="label-red">NAME:</span> Jael P. Reyes<br>
+                        <span class="label-red">CLASS:</span> Aspiring Web/RPG Developer<br>
+                        <span class="label-red">PASSIVE:</span> Cat Sniffing (+10 Sanity)
+                    </p>
+                    <hr class="border-secondary">
+                    <h4 class="label-red mt-3">STATISTICS (Hover card to view)</h4>
+                    
+                    <div class="mb-3">
+                        <span>Coding (Pain & Joy)</span>
+                        <div class="hp-container"><div class="hp-bar hp-bar-coding"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <span>Cat Adoption Luck</span>
+                        <div class="hp-container"><div class="hp-bar hp-bar-cats"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <span>Sleep Quality</span>
+                        <div class="hp-container"><div class="hp-bar hp-bar-sleep"></div></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-4"> 
-        <div class="card custom-card-normal col-12 col-lg-6"> 
-            <div class="card-body">
-                <p> <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">Hobbies:</b><br>
-                    > Reading           <br>> Coding for fun<br>
-                    > Drawing           <br>> Coding to suffer<br>
-                    > Sniffing cats     <br>> Singing out of nowhere<br>
-                    > Sleeping          <br>> Swinging hard on the swing at the park
-                </p>
-            </div>
-        </div>
-        <div class="card custom-card-normal col" id="super-soft-skills"> 
-            <div class="card-body">
-                <p> <b style="color: #c53737; text-shadow: -4px 4px 0px #000000d3;">Super Soft Skills:</b><br>
-                    > Creative at heart<br>
-                    > Detail-oriented<br> 
-                    > Has problem solving skills (???)<br> 
-                    > Quickly adjust on new situations (depends chaos lvl)<br> 
-                    > Empathic<br>
-                </p>
-            </div>
-        </div>
-    </div>
-
-<div class="container mt-5 mb-5 projects" id="projects" >
-    <h1 id="about-txt-1" onmouseover="changeText5(event)" onmouseout="changeText5(event)"> Projects ^-^ </h1>
-    <div class="row g-1">
-        <div class="col-12 col-lg-4">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/8zb4Ytzh/Reyes-Poster.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">GVCOM: First Poster Project</div>
-                </div>
-              </div>                      
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/cJHRbWjS/happi-galentine-s-day.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">GVCOM: Sending Love Your Way Project</div>
-                </div>
-              </div>                      
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/3x3C2mFW/reyesgvcomact.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">GVCOM: Layer Style Project</div>
-                </div>
-              </div>                      
-        </div>
-    </div>
-
-    <div class="row mt-5 g-1">
-        <div class="col-12 col-lg-4">
-            <a href="https://www.figma.com/proto/nvpHSrlqwGslLeO0eXEy1u/cartistry-re-design?node-id=9-12&p=f&t=giP6cgamxXcTIdko-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=9%3A22" target="_blank" class="image-link">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/BvYgSbDb/cartistry.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">HCOMINT: Cartistry Prototype</div>
-                </div>
-              </div>
-            </a>                      
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/765Nf4MV/website-1.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">WEB1: Bootstrap 5.3 Showcase</div>
-                </div>
-              </div>                      
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="image-hover-card">
-                <img src="https://i.postimg.cc/5tNgWLXD/log-in-exp.png" class="card-img-top img-fluid" alt="poster1">
-                <div class="image-overlay">
-                  <div class="overlay-text">WEB1: Log In Page</div>
-                </div>
-              </div>                      
         </div>
     </div>
 </div>
 
-<footer class="custom-footer">
+<div class="container my-5" id="projects">
+    <h2 class="mb-4">PROJECT SHOWCASE</h2>
+    <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="image-hover-card">
+                <img src="https://i.postimg.cc/8zb4Ytzh/Reyes-Poster.png" class="img-fluid" alt="Poster Project">
+                <div class="image-overlay"><div class="overlay-text">GVCOM: First Poster</div></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="https://www.figma.com/proto/nvpHSrlqwGslLeO0eXEy1u/cartistry-re-design" target="_blank">
+                <div class="image-hover-card">
+                    <img src="https://i.postimg.cc/BvYgSbDb/cartistry.png" class="img-fluid" alt="Cartistry UI">
+                    <div class="image-overlay"><div class="overlay-text">HCOMINT: Figma Prototype</div></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="image-hover-card">
+                <img src="https://i.postimg.cc/765Nf4MV/website-1.png" class="img-fluid" alt="Bootstrap Showcase">
+                <div class="image-overlay"><div class="overlay-text">WEB1: Bootstrap 5.3</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
     <div class="container">
-        <p>&copy; <span id="currentYear"></span> DISCLAIMER: No Copyright Infringement Intended. For Educational Purposes only.</p>
+        <p>&copy; <span id="year"></span> | Designed with ☕ by Jael Reyes</p>
+        <p style="font-size: 14px; opacity: 0.6;">Educational Purposes Only | No Infringement Intended</p>
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Dynamic Navbar Padding
+        const nav = document.querySelector(".navbar");
+        document.documentElement.style.setProperty("--navbar-height", nav.offsetHeight + "px");
+    });
+</script>
+
 </body>
 </html>
-
-
-<style>
-:root{
-    --navbar-height: 0px; /*variable for extracted navbar-height*/
-}
-  
-html, body {
-    background-color: #151726 !important;
-    scroll-behavior: smooth;
-    max-width: 100%;
-    overflow-x: hidden;
-    scroll-padding-top: var(--navbar-height);
-    padding-top: var(--navbar-height);
-}
-
-/* ------------------------------- NAVIGATION BAR ELEMENTS HERE ----------------------------*/
-.navbar{
-    background-color: #15194e;
-    font-family: "Perfect DOS VGA 437", sans-serif;
-    align-items: center;
-}
-
-.navbar .nav-link {
-    font-size: 28px;
-    color: #E4DBBF;
-} 
-.navbar .nav-link:hover{
-    color: #ff0000;
-    text-shadow: -4px 3px 0px #000000d3;
-    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
-} 
-.navbar .nav-link:focus{
-    color: #ff0000;
-    text-shadow: -4px 3px 0px #000000d3;
-    transform: translateY(2px);
-    box-shadow: none;
-}
-
-.navbar .navbar-brand{
-    font-size: 25px;
-    color: #E4DBBF!important;
-} 
-
-.navbar .navbar-toggler, .navbar .navbar-toggler:hover, .navbar .navbar-toggler:focus {
-    color: transparent;
-    border: none;
-    background: none;
-    padding: 0; 
-}
-
-#toggler-icon:hover, #toggler-icon:focus {
-    filter: drop-shadow(-4px 4px 0px#970000);
-    transition: filter 0.15s ease-in-out;
-}
-#toggler-icon:active {
-    transform: translateY(2px);
-    box-shadow: none;
-}
-
-/* ------------------------------- HOME ELEMENTS HERE ----------------------------*/
-#home{
-    padding-top: 500px;
-    padding-bottom: 500px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-position: center;
-}
-
-#pixel-earth{
-    height: auto;
-    width: 150px;
-    animation: moveUpDown 1s ease-in-out infinite alternate;
-}
-#pixel-earth:hover{
-    filter: drop-shadow(-3px 4px 0px #0004ffd3);
-    transform: scale(1.05);
-    transition: transform 0.15s ease-in-out;
-}
-@keyframes moveUpDown {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-40px); 
-    }
-}
-
-.gradient-blue{
-    font-weight: bold;
-    font-size: 3.5rem;
-    background: linear-gradient(#7a91e1, #8ea3da, #c0ccf1, #4158c2, #435fd5, #435fd5, #657fda);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px#7a91e1;
-    filter: drop-shadow(-4px 4px 0px #3b52c4);
-}
-
-#home-pg-txt-1 {
-    font-family: "Broken Console", sans-serif;
-    letter-spacing: 8px !important;
-    transform:perspective(12.5rem)  rotateX(10deg);
-}
-#home-pg-txt-1:hover {
-    background: none !important;
-    -webkit-text-fill-color: #15194e !important;
-    -webkit-text-stroke: 0.25 rem #e6e6e6;
-    filter: drop-shadow(-4px 4px 0px #0004ffd3);
-}
-
-#home-pg-txt-2{
-    font-family:"Perfect DOS VGA 437", sans-serif;
-    font-size: 2rem;
-    text-align: center;
-    color: #ffffff;
-}
-
-#start-text {
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: "Perfect DOS VGA 437", sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-#start-scroll:hover #start-text {
-    color: #ff0000;
-}
-
-#start-img-bg{
-    z-index: 0;
-    transition: filter 0.15s ease-in-out;
-    max-width: 10rem;
-    height: auto;
-}
-
-#start-scroll:hover #start-img-bg {
-    filter: drop-shadow(-0.5rem 0.5rem 0rem #0004ffd3);
-}
-
-#start-scroll:active #start-img-bg {
-    transform: translateY(0.125rem);
-    box-shadow: none;
-}
-
-/* ------------------------------- ABOUT ELEMENTS HERE ----------------------------*/
-#about{
-    padding: 50px;
-} 
-
-#me-photo{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 1rem;
-    margin: 10px, 10px, 10px, 10px;
-}
-
-#about-txt-1{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    color:#E4DBBF ;
-    text-shadow: -0.2rem 0.2rem 0rem #000000d3;
-    font-family: "Broken Console", sans-serif;
-    font-size: 2rem;
-}
-
-#about-txt-1:hover{
-    color:#ff0000;
-    text-shadow: -0.2rem 0.2rem 0rem #ffffffd3;
-}
-
-#about-txt-3{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    color:#E4DBBF ;
-    text-shadow: -0.2rem 0.2rem 0rem #000000d3;
-    font-family: "Broken Console", sans-serif;
-    font-size: 2rem;
-}
-#about-txt-3:hover{
-    color:#ffbf00;
-}
-
-.custom-card-normal{
-    border-radius: 1rem !important;
-    border:  0.3125rem solid #0026ff!important;
-    background-color: #121647 !important; 
-    font-family:"Perfect DOS VGA 437", sans-serif;
-    font-size: 1.6rem;
-    color: #E4DBBF !important;
-    transition: width 0.3s ease, height 0.3s ease;;
-}
-.custom-card-normal:hover, #me-photo:hover{
-    border: 5px solid #ff0000!important;
-    background-color: #000000 !important; 
-    color: #fcfcfc !important;
-    filter: drop-shadow(-0.5rem 0.5rem 0rem #1100ffc7);
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.05)
-}
-
-#text-box{
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: #000000;
-    padding: 2rem;
-    border-radius: 3rem;
-}
-
-.custom-card-type2{
-    border-radius: 1rem ;
-    border:  0.3125rem solid #d70d0d!important;
-    background-color: #121647bf !important; 
-    font-family:"Perfect DOS VGA 437", sans-serif;
-    font-size: 1.6rem;
-    color: #E4DBBF !important;
-    transition: width 0.3s ease, height 0.3s ease;
-}
-.custom-card-type2:hover{
-    border:  0.3125rem solid #ffffff!important;
-    background-color: #000000 !important; 
-    color: #fcfcfc !important;
-    filter: drop-shadow(-0.5rem 0.5rem 0rem #ff0000c7);
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.05)
-}
-
-
-/* ------------------------------- PROJECTS ELEMENTS HERE ----------------------------*/
-#projects{
-    padding: 50px;
-    overflow-x: hidden;
-} 
-
-.image-hover-card {
-    position: relative;
-    width: 100%;
-    max-width: 18rem;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 1rem;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  
-  .image-hover-card img {
-    width: 100%;
-    aspect-ratio: 3 / 4; 
-    object-fit: cover;
-    border-radius: 1rem;
-    display: block;
-  }
-  
-  .image-hover-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 20px #d70d0d;
-  }
-  
-
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.65);
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
-  }
-  
-  .overlay-text {
-    color: #fff;
-    font-size: 3rem;
-    text-align: center;
-    padding: 1rem;
-    font-family: "Perfect DOS VGA 437", sans-serif;
-  }
-  
-  .image-hover-card:hover .image-overlay {
-    opacity: 1;
-  }
-  
-
-  .image-link {
-    text-decoration: none; 
-    color: inherit;
-    display: block;
-    cursor: pointer;
-  }
-
-.custom-footer{
-    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dHJjMTE1bWduY2V0N2hiNTc5OWhmYzltd3Y3bnRtOGp6M2dvbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/0QT98Psjfy9Z3PDums/giphy.gif');
-    background-position: center;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-family:"Perfect DOS VGA 437", sans-serif;
-    font-size: 1.6rem;
-    color: #ffffff;
-}
-
-/* ------------------------------- MEDIA QUERIEs ----------------------------*/
-@media (max-width: 575px) {
-    #about-txt-1, #home-pg-txt-2, #about-txt-3{
-        font-size: 22px!important;
-        text-align: center;
-    }
-
-    .custom-card-type2 p, .custom-card-normal p{
-        font-size: 16px;
-        text-align: center;
-    }
-
-    #me-photo{
-        max-width: 100%;
-        height: auto;
-    }
-
-    #trophy-btn{
-        height: auto;
-        width: 100px;
-    }
-
-    .card{
-        margin-left: 0px!important;
-        margin-right: 0px!important;    
-    }
-
-    #name-info, #super-soft-skills{
-        margin-top: 20px;
-    }
-    
-    .skills-icon{
-        height: auto !important;
-        width: 70px !important;
-    }
-
-    .custom-card-normal{
-        margin-top: 10px;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 991px) {
-    #name-info, #super-soft-skills{
-        margin-top: 30px;
-    }
-
-    .skills-icon{
-        height: auto !important;
-        width: 90px !important;
-    }
-}
-
-@media (min-width: 992px) {
-    #super-soft-skills{
-        margin-left: 30px;
-    }
-    
-}
-
-@media(max-width:767px){
-    #trophy-bg-btn{
-        height: auto;
-        width: 90px;
-    }
-    .custom-popover {
-        width: 200px !important;
-    }
-    .custom-popover .popover-header, .popover-body {
-        font-size: 1.6rem!important;
-        padding:0px !important;
-    }
-
-    .skills-icon{
-        margin-bottom: 10px!important;
-    }
-}
-
-</style> 
-
-<script>
-    // NAVIGATION BAR HERE  
- document.addEventListener("DOMContentLoaded", function(){
-    var nav = document.querySelector(".navbar");
-    var navbarheight = nav.offsetHeight + "px";
-
-    document.documentElement.style.setProperty("--navbar-height", navbarheight);
- });
-
-//ABOUT PAGE HERE
-function changeText1(state){
-   if (state.type === "mouseover"){
-      state.target.innerText="RANDOM INFO ABOUT ME ^O^";
-   } else if (state.type === "mouseout"){
-      state.target.innerText="RANDOM INFO ABOUT ME ^-^";
-   }
-}
-
- function changeText5(state){
-   if (state.type === "mouseover"){
-      state.target.innerText="Projects >o<";
-   } else if (state.type === "mouseout"){
-      state.target.innerText="Projects ^-^";
-   }
-}
-
-// changes added: 4/25/2025 *wayafterdedlineTT
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  });
-
-function clearForm() {
-    const form = document.querySelector('form');
-    form.reset(); 
-    form.classList.remove('was-validated'); 
-}
-</script>
